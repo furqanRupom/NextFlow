@@ -3,6 +3,7 @@ import logo from "../assets/nexusFlow.png";
 import { IoNotifications, IoSearchCircle } from "react-icons/io5";
 import Profile from "./Profile";
 import Modal from "./Modal";
+import { Link } from "react-router-dom";
 
 const Heading = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,6 +22,7 @@ const Heading = () => {
           <li className="text-gray-500 text-3xl hover:text-gray-700 duration-200 cursor-pointer">
             <IoSearchCircle />
           </li>
+
           <li className="text-gray-500 hover:text-gray-700 duration-200 cursor-pointer">
             <IoNotifications />
           </li>
