@@ -1,18 +1,36 @@
-import logo from "../assets/nexusFlow.png"
+import logo from "../assets/nexusFlow.png";
+import {
+  AiFillAppstore,
+  AiFillMessage,
+  AiOutlineContacts,
+} from "react-icons/ai";
+import { IoSettingsOutline } from "react-icons/io5";
+import { IoMdContact } from "react-icons/io";
+import { Link } from "react-router-dom";
 
-const  Sidebar = () => {
+const Sidebar = () => {
+  return (
+    <>
+      <header className="min-h-screen  shadow w-fit px-12 py-3">
+        <ul className="flex flex-col space-y-5 text-2xl text-gray-500">
+          <li className="hover:text-gray-700 duration-200 cursor-pointer">
 
-    return (
-        <header className="min-h-screen bg-slate-900 shadow">
-            <div className="flex items-center">
-            <img className="w-24 h-24 object-cover" src={logo} alt="logo" />
-            <h3 className="text-2xl text-white mb-2 font-semibold -ml-5"> Nexus<span className="text-slate-500"> Flow</span></h3>
-            </div>
-
-
-        </header>
-    );
+              <AiFillAppstore />
+        
+          </li>
+          <li className="hover:text-gray-700 duration-200 cursor-pointer">
+            <AiFillMessage />
+          </li>
+          <li className="hover:text-gray-700 duration-200 cursor-pointer">
+            <IoSettingsOutline />
+          </li>
+          <li className="hover:text-gray-700 duration-200 cursor-pointer">
+            <IoMdContact />
+          </li>
+        </ul>
+      </header>
+    </>
+  );
 };
-
 
 export default Sidebar;

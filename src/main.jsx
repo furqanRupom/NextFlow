@@ -7,11 +7,13 @@ import Sidebar from "./components/Sidebar";
 import OthersBar from "./components/OthersBar";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import Heading from "./components/Heading";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-    <section className="font-Sora grid grid-cols-[1fr,3fr,2fr] bg-slate-950">
+      <Heading />
+    <section className="font-Sora grid grid-cols-[1fr,3fr,2fr] ">
       <Sidebar />
       <RouterProvider router={router} />
       <OthersBar />
