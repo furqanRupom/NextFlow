@@ -3,10 +3,12 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import OthersBar from "../components/OthersBar";
 import Heading from "../components/Heading";
+import { Provider } from "react-redux";
 
 const Main = () => {
   return (
     <>
+
       <Heading />
       <div className="grid grid-cols-[1fr,4fr,1fr]">
         <Sidebar />
@@ -16,6 +18,7 @@ const Main = () => {
         </div>
         <OthersBar />
       </div>
+
     </>
   );
 };

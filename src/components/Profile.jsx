@@ -4,7 +4,7 @@ import { ChevronDownIcon,UserCircleIcon,Cog6ToothIcon,ArrowLeftOnRectangleIcon, 
 
 export default function Profile() {
   return (
-    <div className="">
+    <div >
       <Menu as="div" className="relative inline-block text-left">
         <div>
           <Menu.Button className="hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 ">

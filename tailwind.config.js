@@ -1,15 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      fontFamily:{
-        Sora:["'Sora', sans-serif"]
-      }
+      fontFamily: {
+        Sora: ["'Sora', sans-serif"],
+      },
     },
   },
-  plugins: ['prettier-plugin-tailwindcss'],
-}
+  // plugins: ['prettier-plugin-tailwindcss'],
+  plugins: [
+    require("@tailwindcss/forms"),
+    "prettier-plugin-tailwindcss",
+    // ...
+  ],
+};
