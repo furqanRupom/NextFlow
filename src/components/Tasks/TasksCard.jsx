@@ -2,9 +2,11 @@ import React from 'react'
 import { FaDeleteLeft, FaUpRightAndDownLeftFromCenter } from "react-icons/fa6";
 import { useDispatch } from 'react-redux';
 import { removeTask, updateStatus } from '../../redux/features/tasks/tasksSlice';
-
+import { useSelector } from "react-redux";
 const TasksCard = ({task}) => {
   const dispatch = useDispatch();
+
+
   let updatedStatus;
 
   if(task?.status === 'pending'){
@@ -23,13 +25,22 @@ const TasksCard = ({task}) => {
         <span className="text-sm font-light text-gray-600 dark:text-gray-400">
           {task?.date || "30 Aug 2014"}
         </span>
-        <a
-          className="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-300 transform bg-gray-600 rounded cursor-pointer hover:bg-gray-500"
-          tabIndex="0"
-          role="button"
-        >
-          {task?.status || "pending"}
-        </a>
+        <div>
+          <a
+            className="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-300 transform bg-gray-600 rounded cursor-pointer hover:bg-gray-500"
+            tabIndex="0"
+            role="button"
+          >
+            {task?.status || "pending"}
+          </a>
+          <a
+            className={`px-3 py-1 text-xs font-bold ${task?.priority === 'low' ? 'text-orange-400':task?.priority === 'medium' ? 'text-lime-300' : 'text-green-400'} transition-colors duration-300 transform rounded cursor-pointer ml-2`}
+            tabIndex="0"
+            role="button"
+          >
+            {task?.priority || "low"}
+          </a>
+        </div>
       </div>
 
       <div className="mt-2">
@@ -52,7 +63,7 @@ const TasksCard = ({task}) => {
 
       <div className="flex items-center justify-between mt-4">
         <button
-        onClick={()=> dispatch(removeTask(task.id))}
+          onClick={() => dispatch(removeTask(task.id))}
           className="text-red-600 dark:text-red-400 hover:underline"
           tabIndex="0"
           role="link"
@@ -61,7 +72,9 @@ const TasksCard = ({task}) => {
         </button>
 
         <button
-         onClick={()=> dispatch(updateStatus({id:task?.id, status:updatedStatus}))}
+          onClick={() =>
+            dispatch(updateStatus({ id: task?.id, status: updatedStatus }))
+          }
           className="text-green-600 dark:text-green-400 hover:underline"
           tabIndex="0"
           role="link"
@@ -80,7 +93,7 @@ const TasksCard = ({task}) => {
             tabIndex="0"
             role="link"
           >
-            Khatab wedaa
+            {task?.author}
           </a>
         </div>
       </div>

@@ -1,15 +1,15 @@
 import { useForm } from "react-hook-form";
 import Modal from "./Modal";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addTask } from "../redux/features/tasks/tasksSlice";
 
 const TaskModal = ({ isOpen, setIsOpen }) => {
   const { register, handleSubmit, reset } = useForm();
+
   const dispatch = useDispatch();
   const onSubmit = (data) => {
     dispatch(addTask(data));
-    // console.log(data);
-    setIsOpen(false);
+   setIsOpen(false)
     reset();
   };
 
@@ -41,7 +41,11 @@ const TaskModal = ({ isOpen, setIsOpen }) => {
           </div>
           <div className="flex flex-col space-y-1 mt-4">
             <label htmlFor="description">description</label>
-            <input {...register("date")} className="form-input rounded-lg" type="date" />
+            <input
+              {...register("date")}
+              className="form-input rounded-lg"
+              type="date"
+            />
           </div>
           <div className="flex flex-col space-y-1 mt-4">
             <label htmlFor="author">Author</label>
