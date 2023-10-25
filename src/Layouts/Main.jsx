@@ -9,11 +9,11 @@ const Main = () => {
   return (
     <>
 
-      <Heading />
-      <div className="grid grid-cols-[1fr,4fr,1fr]">
+      <div className="grid grid-cols-[0.5fr,5fr,1fr] gap-x-4">
         <Sidebar />
 
-        <div>
+        <div className="w-full">
+          <Heading />
           <Outlet />
         </div>
         <OthersBar />

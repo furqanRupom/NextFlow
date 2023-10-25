@@ -12,7 +12,7 @@ const Sidebar = () => {
   return (
     <>
       <header className="min-h-screen  shadow w-fit px-12 py-3">
-        <ul className="flex flex-col space-y-5 text-2xl text-gray-500">
+        <ul className="flex flex-col space-y-5 text-3xl text-gray-500 pt-12">
           <li className="hover:text-gray-700 duration-200 cursor-pointer">
             <Link to="/">
               <AiFillAppstore />
