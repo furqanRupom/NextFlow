@@ -10,9 +10,9 @@ const Heading = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex items-center justify-between px-6">
+    <div className="flex items-center justify-between px-6 py-3">
       <div className="flex items-center">
-        <img className="w-24  h-24 object-cover" src={logo} alt="logo" />
+
         <h3 className="text-2xl  mb-2 font-semibold -ml-5">
           Nexus<span className="text-slate-500"> Flow</span>
         </h3>

@@ -8,7 +8,7 @@ const TaskModal = ({ isOpen, setIsOpen }) => {
   const dispatch = useDispatch();
   const onSubmit = (data) => {
     dispatch(addTask(data));
-    console.log(data);
+    // console.log(data);
     setIsOpen(false);
     reset();
   };
@@ -41,7 +41,7 @@ const TaskModal = ({ isOpen, setIsOpen }) => {
           </div>
           <div className="flex flex-col space-y-1 mt-4">
             <label htmlFor="description">description</label>
-            <input className="form-input rounded-lg" type="date" />
+            <input {...register("date")} className="form-input rounded-lg" type="date" />
           </div>
           <div className="flex flex-col space-y-1 mt-4">
             <label htmlFor="author">Author</label>
@@ -78,7 +78,7 @@ const TaskModal = ({ isOpen, setIsOpen }) => {
           <button
             onClick={() => setIsOpen(false)}
             className="px-8 py-3 rounded bg-red-500 text-white font-semibold my-3 hover:bg-red-600 duration-200 ml-2"
-            type="submit"
+            type="button"
           >
             Cancel
           </button>

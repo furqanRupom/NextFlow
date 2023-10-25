@@ -1,22 +1,34 @@
 import React from 'react'
 import { FaDeleteLeft, FaUpRightAndDownLeftFromCenter } from "react-icons/fa6";
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { removeTask, updateStatus } from '../../redux/features/tasks/tasksSlice';
 
-const TasksCard = () => {
-    const {tasks} = useSelector((state) => state.tasksSlice)
-    console.log(tasks);
+const TasksCard = ({task}) => {
+  const dispatch = useDispatch();
+  let updatedStatus;
+
+  if(task?.status === 'pending'){
+    updatedStatus = 'running'
+  }
+  else if(task?.status === 'running'){
+    updatedStatus = 'done'
+  }
+  else{
+    updatedStatus = 'archive'
+  }
+
   return (
     <div className="max-w-2xl px-8 py-4 bg-white rounded-lg shadow-md dark:bg-gray-800 mt-12">
       <div className="flex items-center justify-between">
         <span className="text-sm font-light text-gray-600 dark:text-gray-400">
-          Mar 10, 2019
+          {task?.date || "30 Aug 2014"}
         </span>
         <a
           className="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-300 transform bg-gray-600 rounded cursor-pointer hover:bg-gray-500"
           tabIndex="0"
           role="button"
         >
-          Design
+          {task?.status || "pending"}
         </a>
       </div>
 
@@ -27,34 +39,35 @@ const TasksCard = () => {
           tabIndex="0"
           role="link"
         >
-          Accessibility tools for designers and developers
+          {task?.name || "Accessibility tools for designers and developers"}
         </a>
         <p className="mt-2 text-gray-600 dark:text-gray-300">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora
+          {task?.description ||
+            `  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora
           expedita dicta totam aspernatur doloremque. Excepturi iste iusto eos
           enim reprehenderit nisi, accusamus delectus nihil quis facere in modi
-          ratione libero!
+          ratione libero!`}
         </p>
       </div>
 
       <div className="flex items-center justify-between mt-4">
-        <a
-          href="#"
+        <button
+        onClick={()=> dispatch(removeTask(task.id))}
           className="text-red-600 dark:text-red-400 hover:underline"
           tabIndex="0"
           role="link"
         >
-         <FaDeleteLeft />
-        </a>
+          <FaDeleteLeft />
+        </button>
 
-        <a
-          href="#"
+        <button
+         onClick={()=> dispatch(updateStatus({id:task?.id, status:updatedStatus}))}
           className="text-green-600 dark:text-green-400 hover:underline"
           tabIndex="0"
           role="link"
         >
-         <FaUpRightAndDownLeftFromCenter />
-        </a>
+          <FaUpRightAndDownLeftFromCenter />
+        </button>
 
         <div className="flex items-center">
           <img
